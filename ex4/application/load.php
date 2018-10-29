@@ -7,7 +7,7 @@ class Load {
          extract($data);
       }
 
-      $u = new User();
+      //$u = new User();
       include 'views/' . $file_name;
    }
 }
