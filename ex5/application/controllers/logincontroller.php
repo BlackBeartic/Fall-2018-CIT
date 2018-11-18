@@ -3,7 +3,7 @@
 class LoginController extends Controller{
 
    protected $userObject;
-
+   
    public function do_login() {
 	   // handle login
 
@@ -15,15 +15,15 @@ class LoginController extends Controller{
 
            $_SESSION['uID'] = $userInfo['uID'];
 
-           if (strlen($_SESSION['redirect']) > 0) {
-             $view = $_SESSION['redirect'];
-             unset($_SESSION['redirect']);
-
-             header('Location: '.BASE_URL.$view);
-           }
+          if(strlen($_SESSION['redirect']) > 0 ) {
+              $view = $_SESSION['redirect'];
+              unset($_SESSION['redirect']);
+              header('Location: '.BASE_URL.$view);
+          }
            else {
-             header('Location: '.BASE_URL);
+               header('Location: '.BASE_URL);
            }
+
 
 
 
@@ -33,13 +33,18 @@ class LoginController extends Controller{
        }
 
    }
-   public function logout() {
-     unset($_SESSION['uID']);
 
-     session_write_close();
+    public function logout() {
 
-     header('Location: '.BASE_URL);
+    //unset the session id
+        unset($_SESSION['uID']);
 
-   }
+    // close the session
+        session_write_close();
 
+    // send to the homepage
+        header('Location: '.BASE_URL);
+
+    }
+	
 }
