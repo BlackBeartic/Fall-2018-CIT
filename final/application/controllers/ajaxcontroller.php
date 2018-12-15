@@ -1,12 +1,12 @@
 <?php
 
 class AjaxController extends Controller{
-	
+
 	protected $postObject;
     protected $userObject;
     protected $categoryObject;
 
-	
+
 	public function index(){
 		$this->set("response","Invalid Request");
 	}
@@ -19,7 +19,7 @@ class AjaxController extends Controller{
 
 
     }
-	
+
 }
 
 ?>

@@ -1,7 +1,7 @@
 <?php
 
 class HomeController extends Controller{
-	
+
 	public function index(){
         $rss = new RssDisplay("http://fox59.com/feed/");
 
@@ -27,7 +27,9 @@ class HomeController extends Controller{
         $this->set('data',$html);
 
 	}
+
 	
+
 }
 
 ?>

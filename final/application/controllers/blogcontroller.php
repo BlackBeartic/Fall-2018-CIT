@@ -17,6 +17,9 @@ class BlogController extends Controller{
 		$this->set('posts',$posts);
 	}
 
+	public function categoryPosts(){
+		if 
+	}
 }
 
 ?>

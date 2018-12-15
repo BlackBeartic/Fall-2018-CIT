@@ -57,6 +57,7 @@
               <li><a href="<?php echo BASE_URL?>blog/">Blog</a></li>
               <li><a href="<?php echo BASE_URL?>members/">Members</a></li>
                 <li><a href="<?php echo BASE_URL?>weather/">Weather</a></li>
+                <li><a href="<?php echo BASE_URL?>news/">News</a></li>
 
             </ul>
 
@@ -77,12 +78,23 @@
                                     <li>
                                         <a href="<?php echo BASE_URL?>manageposts/">Manage Posts</a>
                                     </li>
+                                    <li>
+                                      <a href="<?php echo BASE_URL?>managecategories/">Manage Categories</a>
+                                    </li>
+                                    <li>
+                                      <a href="<?php echo BASE_URL?>manageusers/">Manage Users</a>
+                                    </li>
+
                                 <?php
                                 }
                                 ?>
                                 <li>
+                                  <a href="<?php echo BASE_URL?>members/users/<?php $user[uID] ?>">My Profile</a>
+                                </li>
+                                <li>
                                     <a href="<?php echo BASE_URL?>login/logout/">Log Out</a>
                                 </li>
+
                             </ul>
 
                       </li>

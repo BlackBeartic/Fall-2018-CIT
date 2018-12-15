@@ -1,12 +1,12 @@
 <?php
 class Users extends Model{
-	
+
 	public $uID;
     public $first_name;
     public $last_name;
     public $email;
     protected $user_type;
-
+		protected $active;
 
 	// Constructor
 	public function __construct(){
@@ -21,6 +21,7 @@ class Users extends Model{
             $this->last_name = $userInfo['last_name'];
             $this->email = $userInfo['email'];
             $this->user_type = $userInfo['user_type'];
+
 
         }
 
@@ -51,34 +52,34 @@ class Users extends Model{
                 return false;
             }
     }
-	
+
 	public function getUser($uID){
 		$sql = 'SELECT uID, first_name, last_name, email, password FROM users WHERE uID = ?';
-		
+
 		// perform query
 		$results = $this->db->getrow($sql, array($uID));
 		$user = $results;
 		return $user;
 	}
-		
+
 	public function getAllUsers($limit = 0){
 		if($limit > 0){
 			$numusers = ' LIMIT '.$limit;
 		}
 		$sql = 'SELECT uID, first_name, last_name, email, password FROM users'.$numusers;
-		
+
 		// perform query
 		$results = $this->db->execute($sql);
-		
+
 		while ($row=$results->fetchrow()) {
 			$users[] = $row;
 		}
 
 		return $users;
 	}
-	
+
 	public function addUser($data){
-		$sql = 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)'; 
+		$sql = 'INSERT INTO users (first_name, last_name, email, password) VALUES (?,?,?,?)';
 		$this->db->execute($sql,$data);
 		$message = 'User added.';
 		return $message;
@@ -127,6 +128,13 @@ class Users extends Model{
         return $user;
 
     }
+		public function isUserActive($uID){
+			if ($this->userObject->isActive($userInfo['uID']) == 0)
+			{
+				$message = "Account awaiting approval";
+				return $message;
+			}
+		}
 
-	
+
 }

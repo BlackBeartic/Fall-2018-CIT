@@ -3,7 +3,7 @@
 class LoginController extends Controller{
 
    protected $userObject;
-   
+
    public function do_login() {
 	   // handle login
 
@@ -46,5 +46,6 @@ class LoginController extends Controller{
         header('Location: '.BASE_URL);
 
     }
-	
+
 }
+?>
